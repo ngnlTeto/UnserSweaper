@@ -10,7 +10,7 @@
         }
 
         public  Coords Coords { get; }
-        public CellTypeEnum Type { get; }
+        public CellTypeEnum Type { get; set; }
         public bool IsKnown { get; private set; }
 
         public void PublishCell()

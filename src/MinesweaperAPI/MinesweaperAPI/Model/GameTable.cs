@@ -1,16 +1,17 @@
-﻿namespace MinesweaperAPI.Model
+﻿using MinesweaperAPI.Logic;
+
+namespace MinesweaperAPI.Model
 {
     public class GameTable
     {
         public Guid Id { get; }
         public Cell[,] Table { get; private set; }
-        public ushort SizeTable { get; }
+        public ushort SizeTable { get => (ushort)Table.Length; }
 
-        public GameTable(ushort sizeTable)
+        public GameTable(ushort tableSize)
         {
             Id = Guid.NewGuid();
-            SizeTable = sizeTable;
-            Table = new Cell[sizeTable, sizeTable];
+            Table = GameCreateLogic.GetTable(tableSize, tableSize);
         }
     }
 }
